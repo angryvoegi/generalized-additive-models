@@ -34,9 +34,10 @@ class SplineTransformer(SklearnSplineTransformer):
             elements of the B-splines, n_knots + degree - 1.
         """
         check_is_fitted(self)
-
-        X = self.validate_data(X, reset=False, accept_sparse=False, ensure_2d=True)
-
+        # NOT WORKING FOR ME
+        # AttributeError: 'SplineTransformer' object has no attribute 'validate_data'. Did you mean: '_validate_params'?
+        # X = self.validate_data(X, reset=False, accept_sparse=False, ensure_2d=True)
+        X = X
         n_samples, n_features = X.shape
         n_splines = self.bsplines_[0].c.shape[1]
         degree = self.degree
